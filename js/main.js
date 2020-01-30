@@ -50,8 +50,9 @@ class UI {
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
 // Add a Book
-document.querySelector('#book-from').addEventListener   ('submit', (e) =>{
-//     Prevent actual aubmit
+document.querySelector('#book-form').addEventListener('submit', (e) =>
+{
+//     Prevent actual submit
     e.preventDefault();
 
 //    Get from Values
@@ -59,9 +60,11 @@ document.querySelector('#book-from').addEventListener   ('submit', (e) =>{
     const  author = document.querySelector('#author').value;
     const  isbn = document.querySelector('#isbn').value;
 
-//    Instate Book
+//    Instatiate Book
     const book = new Book(title, author, isbn);
-    console.log(book);
+
+    //Add book to IU
+    UI.addBookToList(book);
 });
 
 // Event: Remove a book
