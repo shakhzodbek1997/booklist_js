@@ -53,9 +53,10 @@ class UI {
         div.appendChild(document.createTextNode(message));
         const col_md_12 = document.querySelector('.col-md-12');
         const form = document.querySelector('#book-form');
-        col_md_12.insertBefore(div, form)
-        // Vanish in 3 seconds
+        col_md_12.insertBefore(div, form);
 
+        // Vanish in 3 seconds
+        setTimeout(() => document.querySelector('.alert').remove(), 3000);
     }
 
 
@@ -90,6 +91,10 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
         //Add book to IU
         UI.addBookToList(book);
+
+        //show success message
+        UI.showAlert('Book Added', 'success');
+
         // clear fields
         UI.clearFields();
 
@@ -99,6 +104,10 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
 // Event: Remove a book
 document.querySelector('#book-list').addEventListener('click', (e) => {
-    UI.deleteBook(e.target)
+    UI.deleteBook(e.target);
+
+    //show success message
+    UI.showAlert('Book Removed', 'success');
+
 });
 
